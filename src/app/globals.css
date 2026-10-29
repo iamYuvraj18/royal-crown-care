@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-ivory font-sans text-espresso antialiased; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-gold-deep; }
+}
+
+.gold-divider {
+  height: 1px; width: 9rem;
+  background: linear-gradient(90deg, transparent, #C69A32, transparent);
+}
+
+@keyframes float { 0%,100% { transform: translateY(0) rotate(var(--r, 0deg)); } 50% { transform: translateY(-10px) rotate(var(--r, 0deg)); } }
+.float { animation: float 7s ease-in-out infinite; }
+.float-slow { animation: float 10s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .float, .float-slow { animation: none; }
+}
